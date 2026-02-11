@@ -12,5 +12,36 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 accessibilityDescription: "Let's Stretch"
             )
         }
+
+        setupMenu()
+    }
+
+    private func setupMenu() {
+        let menu = NSMenu()
+
+        menu.addItem(
+            NSMenuItem(
+                title: "About Let's Stretch",
+                action: #selector(showAbout),
+                keyEquivalent: ""
+            )
+        )
+
+        menu.addItem(NSMenuItem.separator())
+
+        menu.addItem(
+            NSMenuItem(
+                title: "Quit Let's Stretch",
+                action: #selector(NSApplication.terminate(_:)),
+                keyEquivalent: "q"
+            )
+        )
+
+        statusItem?.menu = menu
+    }
+
+    @objc private func showAbout() {
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.orderFrontStandardAboutPanel(nil)
     }
 }
