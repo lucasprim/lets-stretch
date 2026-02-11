@@ -3,7 +3,7 @@
 **Track ID:** mvp-menu-bar_20260211
 **Spec:** [spec.md](./spec.md)
 **Created:** 2026-02-11
-**Status:** [ ] Not Started
+**Status:** [~] In Progress
 
 ## Overview
 
@@ -15,7 +15,7 @@ Set up the Xcode project, menu bar presence, and basic app lifecycle.
 
 ### Tasks
 
-- [ ] Task 1.1: Create Xcode project as a macOS app (SwiftUI lifecycle, no main window) targeting macOS 14
+- [~] Task 1.1: Create Xcode project as a macOS app (SwiftUI lifecycle, no main window) targeting macOS 14
 - [ ] Task 1.2: Configure the app as a menu bar agent (LSUIElement) with NSStatusItem and a placeholder icon
 - [ ] Task 1.3: Add basic menu bar dropdown with "Quit" and "About" items
 - [ ] Task 1.4: Set up SwiftLint via Swift Package Manager and add initial configuration

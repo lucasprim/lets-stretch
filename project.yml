@@ -1,0 +1,41 @@
+name: LetsStretch
+options:
+  bundleIdPrefix: com.lucasprim
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "26.2"
+  generateEmptyDirectories: true
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+targets:
+  LetsStretch:
+    type: application
+    platform: macOS
+    sources:
+      - path: LetsStretch/Sources
+    resources:
+      - path: LetsStretch/Resources/Assets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.lucasprim.LetsStretch
+        PRODUCT_NAME: LetsStretch
+        INFOPLIST_KEY_LSUIElement: true
+        INFOPLIST_KEY_CFBundleDisplayName: "Let's Stretch"
+        GENERATE_INFOPLIST_FILE: true
+        CODE_SIGN_ENTITLEMENTS: LetsStretch/Resources/LetsStretch.entitlements
+        SWIFT_STRICT_CONCURRENCY: complete
+    entitlements:
+      path: LetsStretch/Resources/LetsStretch.entitlements
+  LetsStretchTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: LetsStretchTests/Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.lucasprim.LetsStretchTests
+        GENERATE_INFOPLIST_FILE: true
+    dependencies:
+      - target: LetsStretch
