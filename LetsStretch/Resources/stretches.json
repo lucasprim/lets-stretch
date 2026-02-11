@@ -1,0 +1,254 @@
+[
+  {
+    "id": "neck-tilt",
+    "name": "Neck Tilt Stretch",
+    "description": "Gently stretches the side neck muscles to relieve tension from computer work.",
+    "instructions": [
+      "Sit up straight with shoulders relaxed.",
+      "Slowly tilt your head toward your right shoulder.",
+      "Use your right hand to gently apply additional pressure.",
+      "Hold for 10 seconds, then repeat on the left side."
+    ],
+    "durationSeconds": 20,
+    "category": "desk_friendly",
+    "targetArea": "neck"
+  },
+  {
+    "id": "chin-tucks",
+    "name": "Chin Tucks",
+    "description": "Targets the deep neck flexors and helps correct forward head posture.",
+    "instructions": [
+      "Sit or stand with a neutral spine.",
+      "Keep your eyes forward and pull your chin straight back.",
+      "Create a \"double chin\" without tilting your head down.",
+      "Hold for 5 seconds, release, and repeat 3 times."
+    ],
+    "durationSeconds": 15,
+    "category": "desk_friendly",
+    "targetArea": "neck"
+  },
+  {
+    "id": "shoulder-shrugs",
+    "name": "Shoulder Shrugs",
+    "description": "Releases tension in the upper trapezius muscles from prolonged sitting.",
+    "instructions": [
+      "Sit or stand with arms relaxed at your sides.",
+      "Lift both shoulders up toward your ears.",
+      "Hold the shrug at the top for 3 seconds.",
+      "Release and lower shoulders completely. Repeat 5 times."
+    ],
+    "durationSeconds": 20,
+    "category": "desk_friendly",
+    "targetArea": "shoulders"
+  },
+  {
+    "id": "shoulder-blade-squeeze",
+    "name": "Shoulder Blade Squeeze",
+    "description": "Stretches muscles between the shoulder blades to counter hunched posture.",
+    "instructions": [
+      "Sit up straight with arms at your sides.",
+      "Pull your shoulder blades together behind you.",
+      "Imagine holding a pencil between your shoulder blades.",
+      "Hold for 5 seconds, then release slowly. Repeat 5 times."
+    ],
+    "durationSeconds": 20,
+    "category": "desk_friendly",
+    "targetArea": "shoulders"
+  },
+  {
+    "id": "overhead-reach",
+    "name": "Overhead Reach",
+    "description": "Stretches the shoulders, lats, and sides of the torso.",
+    "instructions": [
+      "Sit or stand with feet shoulder-width apart.",
+      "Interlace your fingers and extend arms overhead.",
+      "Push your palms toward the ceiling.",
+      "Lean gently to the right, hold, then lean to the left."
+    ],
+    "durationSeconds": 25,
+    "category": "desk_friendly",
+    "targetArea": "shoulders"
+  },
+  {
+    "id": "wrist-flexor",
+    "name": "Wrist Flexor Stretch",
+    "description": "Stretches the underside forearm muscles to prevent strain from typing.",
+    "instructions": [
+      "Extend your right arm forward, palm facing up.",
+      "Use your left hand to gently pull your fingers back toward you.",
+      "Keep your arm straight and feel the stretch in your forearm.",
+      "Hold, then switch arms."
+    ],
+    "durationSeconds": 20,
+    "category": "desk_friendly",
+    "targetArea": "wrists"
+  },
+  {
+    "id": "wrist-extensor",
+    "name": "Wrist Extensor Stretch",
+    "description": "Stretches the top forearm muscles to relieve tension from mouse use.",
+    "instructions": [
+      "Extend your right arm forward, palm facing down.",
+      "Use your left hand to gently press your fingers toward the floor.",
+      "Keep your arm straight and feel the stretch on top of your forearm.",
+      "Hold, then switch arms."
+    ],
+    "durationSeconds": 20,
+    "category": "desk_friendly",
+    "targetArea": "wrists"
+  },
+  {
+    "id": "seated-spinal-twist",
+    "name": "Seated Spinal Twist",
+    "description": "Mobilizes the thoracic spine and relieves mid-back tension from sitting.",
+    "instructions": [
+      "Sit up straight with feet flat on the floor.",
+      "Place your right hand on the back of your chair.",
+      "Rotate your torso to the right, looking over your shoulder.",
+      "Hold, then repeat on the left side."
+    ],
+    "durationSeconds": 25,
+    "category": "desk_friendly",
+    "targetArea": "back"
+  },
+  {
+    "id": "seated-cat-cow",
+    "name": "Seated Cat-Cow",
+    "description": "Mobilizes the entire spine and relieves stiffness from prolonged sitting.",
+    "instructions": [
+      "Sit on the edge of your chair with hands on your knees.",
+      "Arch your back, lifting your chest and looking up (cow).",
+      "Round your spine, tucking your chin to your chest (cat).",
+      "Alternate slowly between the two positions for the full duration."
+    ],
+    "durationSeconds": 30,
+    "category": "desk_friendly",
+    "targetArea": "back"
+  },
+  {
+    "id": "chest-opener",
+    "name": "Chest Opener",
+    "description": "Stretches the pectoral muscles that tighten from keyboard and mouse work.",
+    "instructions": [
+      "Stand up and clasp your hands behind your back.",
+      "Straighten your arms and gently lift them.",
+      "Squeeze your shoulder blades together and open your chest.",
+      "Hold and breathe deeply."
+    ],
+    "durationSeconds": 25,
+    "category": "desk_friendly",
+    "targetArea": "chest"
+  },
+  {
+    "id": "seated-hip-flexor",
+    "name": "Seated Hip Flexor Stretch",
+    "description": "Stretches the hip flexors that shorten from prolonged sitting.",
+    "instructions": [
+      "Scoot to the edge of your chair.",
+      "Extend your right leg back with toes on the ground.",
+      "Keep your left foot flat and knee at 90 degrees.",
+      "Tilt your pelvis slightly forward to deepen the stretch. Switch sides."
+    ],
+    "durationSeconds": 25,
+    "category": "desk_friendly",
+    "targetArea": "hips"
+  },
+  {
+    "id": "standing-quad",
+    "name": "Standing Quad Stretch",
+    "description": "Stretches the front thigh muscles to improve circulation after sitting.",
+    "instructions": [
+      "Stand next to your desk for support.",
+      "Bend your right knee and grab your ankle behind you.",
+      "Pull your heel toward your glutes, keeping knees together.",
+      "Hold, then switch legs."
+    ],
+    "durationSeconds": 25,
+    "category": "desk_friendly",
+    "targetArea": "legs"
+  },
+  {
+    "id": "childs-pose",
+    "name": "Child's Pose",
+    "description": "Gently stretches the lower back, hips, and shoulders while promoting relaxation.",
+    "instructions": [
+      "Kneel on the floor and sit back on your heels.",
+      "Fold forward, extending your arms out in front of you.",
+      "Rest your forehead on the mat.",
+      "Breathe deeply and relax into the stretch."
+    ],
+    "durationSeconds": 30,
+    "category": "mat_required",
+    "targetArea": "back"
+  },
+  {
+    "id": "cat-cow",
+    "name": "Cat-Cow Pose",
+    "description": "Mobilizes the entire spine and relieves back stiffness from sitting.",
+    "instructions": [
+      "Start on hands and knees in a tabletop position.",
+      "Arch your back, lifting your chest and tailbone (cow).",
+      "Round your spine, tucking chin and tailbone (cat).",
+      "Flow slowly between positions with your breath."
+    ],
+    "durationSeconds": 30,
+    "category": "mat_required",
+    "targetArea": "back"
+  },
+  {
+    "id": "kneeling-hip-flexor",
+    "name": "Kneeling Hip Flexor Stretch",
+    "description": "Deeply stretches the hip flexors that become chronically tight from desk work.",
+    "instructions": [
+      "Kneel on your right knee with your left foot forward at 90 degrees.",
+      "Keep your torso upright and core engaged.",
+      "Shift your hips forward until you feel a stretch in the right hip.",
+      "Hold, then switch sides."
+    ],
+    "durationSeconds": 30,
+    "category": "mat_required",
+    "targetArea": "hips"
+  },
+  {
+    "id": "pigeon-pose",
+    "name": "Modified Pigeon Pose",
+    "description": "Opens the hips and glutes to relieve lower back pain from sitting.",
+    "instructions": [
+      "From tabletop, bring your right knee forward behind your right wrist.",
+      "Extend your left leg straight back behind you.",
+      "Lower your hips toward the floor.",
+      "Fold forward over your front leg for a deeper stretch. Switch sides."
+    ],
+    "durationSeconds": 30,
+    "category": "mat_required",
+    "targetArea": "hips"
+  },
+  {
+    "id": "cobra",
+    "name": "Cobra Stretch",
+    "description": "Extends the spine and opens the chest to counter rounded posture.",
+    "instructions": [
+      "Lie face-down with your hands under your shoulders.",
+      "Press into your hands to lift your chest off the floor.",
+      "Keep your hips on the ground and shoulders relaxed.",
+      "Look forward or slightly up, breathing deeply."
+    ],
+    "durationSeconds": 25,
+    "category": "mat_required",
+    "targetArea": "back"
+  },
+  {
+    "id": "supine-figure-4",
+    "name": "Supine Figure-4 Stretch",
+    "description": "Stretches the glutes and piriformis to relieve hip and lower back tension.",
+    "instructions": [
+      "Lie on your back with knees bent, feet flat on the floor.",
+      "Cross your right ankle over your left knee.",
+      "Thread your hands through and clasp behind your left thigh.",
+      "Pull your left thigh toward your chest. Hold, then switch sides."
+    ],
+    "durationSeconds": 30,
+    "category": "mat_required",
+    "targetArea": "hips"
+  }
+]
