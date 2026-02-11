@@ -1,7 +1,3 @@
-import XCTest
-
-final class LetsStretchTests: XCTestCase {
-    func testPlaceholder() {
-        XCTAssertTrue(true, "Project test target is configured correctly")
-    }
-}
+// Test files are organized per feature:
+// - StretchTests.swift
+// - StretchRepositoryTests.swift

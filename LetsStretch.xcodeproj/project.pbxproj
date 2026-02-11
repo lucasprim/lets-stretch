@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0750DC1AFD432CB0612C8DD7 /* StretchRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E281273AA42C1A1CB1EFC /* StretchRepositoryTests.swift */; };
+		0AAE43E1FBA170B80B881C4E /* stretches.json in Resources */ = {isa = PBXBuildFile; fileRef = F50920D5ABAD6FDAB168CAE2 /* stretches.json */; };
 		5495FB14D480E498C9237BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7A70B9282A1BD358ADBDD1 /* AppDelegate.swift */; };
+		6C79086C802219F8335EE606 /* StretchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD2E844262F060C076B33 /* StretchSession.swift */; };
+		A011BEF2B8DA14233564D862 /* StretchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1824FBF7F58640A3028C55 /* StretchTests.swift */; };
 		B3CF8BDD4704480C368A8050 /* LetsStretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CE0F901D12FA4B59A79FBE /* LetsStretchApp.swift */; };
 		C632FF85EE64353FDA9D76C9 /* LetsStretchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA815792E1ECD455DF1253A /* LetsStretchTests.swift */; };
+		D36BF345F26A225DBA911A3A /* Stretch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AF86CD0B5F6C14E4DC2B52 /* Stretch.swift */; };
+		D8D8E0183E8439B41F66E3E7 /* StretchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D8DB752646E2AA08891B5 /* StretchRepository.swift */; };
+		F788975CB4652ADCB94097FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 344EF73BC785FBB2188B1D3A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,17 +30,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		344EF73BC785FBB2188B1D3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Assets.xcassets; path = LetsStretch/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		6340082A00E17F32E33D621B /* LetsStretchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsStretchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C1824FBF7F58640A3028C55 /* StretchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchTests.swift; sourceTree = "<group>"; };
+		A89E281273AA42C1A1CB1EFC /* StretchRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchRepositoryTests.swift; sourceTree = "<group>"; };
 		AF7A70B9282A1BD358ADBDD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C5AF86CD0B5F6C14E4DC2B52 /* Stretch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stretch.swift; sourceTree = "<group>"; };
+		DDBAD2E844262F060C076B33 /* StretchSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchSession.swift; sourceTree = "<group>"; };
+		E43D8DB752646E2AA08891B5 /* StretchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchRepository.swift; sourceTree = "<group>"; };
+		F50920D5ABAD6FDAB168CAE2 /* stretches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stretches.json; sourceTree = "<group>"; };
 		F6CE0F901D12FA4B59A79FBE /* LetsStretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsStretchApp.swift; sourceTree = "<group>"; };
 		F9622D27865853EC75893551 /* LetsStretch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsStretch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA815792E1ECD455DF1253A /* LetsStretchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsStretchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		1E803A976A010671D0047414 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C5AF86CD0B5F6C14E4DC2B52 /* Stretch.swift */,
+				DDBAD2E844262F060C076B33 /* StretchSession.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		403DD354FBCD445CE1BE50F4 = {
 			isa = PBXGroup;
 			children = (
+				344EF73BC785FBB2188B1D3A /* Assets.xcassets */,
+				E046316FBBFD0A38701AD8EF /* Resources */,
 				4228F03C878CCD1EA47C7128 /* Sources */,
 				ABBF9D87E10C57FF934A1527 /* Sources */,
 				C944AD600D4182E0FD630BD9 /* Products */,
@@ -45,15 +70,27 @@
 			children = (
 				AF7A70B9282A1BD358ADBDD1 /* AppDelegate.swift */,
 				F6CE0F901D12FA4B59A79FBE /* LetsStretchApp.swift */,
+				9FB1DAAF79CD5A373C5F271A /* Data */,
+				1E803A976A010671D0047414 /* Models */,
 			);
 			name = Sources;
 			path = LetsStretch/Sources;
+			sourceTree = "<group>";
+		};
+		9FB1DAAF79CD5A373C5F271A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E43D8DB752646E2AA08891B5 /* StretchRepository.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		ABBF9D87E10C57FF934A1527 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				FBA815792E1ECD455DF1253A /* LetsStretchTests.swift */,
+				A89E281273AA42C1A1CB1EFC /* StretchRepositoryTests.swift */,
+				7C1824FBF7F58640A3028C55 /* StretchTests.swift */,
 			);
 			name = Sources;
 			path = LetsStretchTests/Sources;
@@ -66,6 +103,15 @@
 				6340082A00E17F32E33D621B /* LetsStretchTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E046316FBBFD0A38701AD8EF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F50920D5ABAD6FDAB168CAE2 /* stretches.json */,
+			);
+			name = Resources;
+			path = LetsStretch/Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +140,7 @@
 			buildConfigurationList = 24C4F33BD38792C82A2BD3B9 /* Build configuration list for PBXNativeTarget "LetsStretch" */;
 			buildPhases = (
 				E235B97F43028D35CF3EAC4E /* Sources */,
+				C01F2A5FCC042E44E4F565E8 /* Resources */,
 				9CC364E3F1A36221DE7DDC3D /* SwiftLint */,
 			);
 			buildRules = (
@@ -139,6 +186,18 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		C01F2A5FCC042E44E4F565E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F788975CB4652ADCB94097FE /* Assets.xcassets in Resources */,
+				0AAE43E1FBA170B80B881C4E /* stretches.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
 		9CC364E3F1A36221DE7DDC3D /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -167,6 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C632FF85EE64353FDA9D76C9 /* LetsStretchTests.swift in Sources */,
+				0750DC1AFD432CB0612C8DD7 /* StretchRepositoryTests.swift in Sources */,
+				A011BEF2B8DA14233564D862 /* StretchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +237,9 @@
 			files = (
 				5495FB14D480E498C9237BF5 /* AppDelegate.swift in Sources */,
 				B3CF8BDD4704480C368A8050 /* LetsStretchApp.swift in Sources */,
+				D36BF345F26A225DBA911A3A /* Stretch.swift in Sources */,
+				D8D8E0183E8439B41F66E3E7 /* StretchRepository.swift in Sources */,
+				6C79086C802219F8335EE606 /* StretchSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

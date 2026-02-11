@@ -19,11 +19,11 @@ Set up the Xcode project, menu bar presence, and basic app lifecycle.
 - [x] Task 1.2: Configure the app as a menu bar agent (LSUIElement) with NSStatusItem and a placeholder icon
 - [x] Task 1.3: Add basic menu bar dropdown with "Quit" and "About" items
 - [x] Task 1.4: Set up SwiftLint via Swift Package Manager and add initial configuration
-- [~] Task 1.5: Set up unit test target with XCTest
+- [x] Task 1.5: Set up unit test target with XCTest
 
 ### Verification
 
-- [ ] App launches in menu bar with icon, dropdown menu shows Quit and About options
+- [x] App launches in menu bar with icon, dropdown menu shows Quit and About options
 
 ## Phase 2: Stretch Content & Data Layer
 
@@ -31,15 +31,15 @@ Research desk-worker stretches, define data models, and bundle content as JSON.
 
 ### Tasks
 
-- [ ] Task 2.1: Research and curate 15-20 common desk-worker stretches (sitting/standing and mat categories) with names, descriptions, step-by-step instructions, duration, and animation references
-- [ ] Task 2.2: Define Swift data models: `Stretch`, `StretchCategory` (desk-friendly, mat-required), `StretchSession`
-- [ ] Task 2.3: Create bundled JSON file(s) with all stretch data
-- [ ] Task 2.4: Build `StretchRepository` to load and filter stretches from bundled JSON
-- [ ] Task 2.5: Write unit tests for data models and repository (loading, filtering by category)
+- [x] Task 2.1: Research and curate 15-20 common desk-worker stretches (sitting/standing and mat categories) with names, descriptions, step-by-step instructions, duration, and animation references
+- [x] Task 2.2: Define Swift data models: `Stretch`, `StretchCategory` (desk-friendly, mat-required), `StretchSession`
+- [x] Task 2.3: Create bundled JSON file(s) with all stretch data
+- [x] Task 2.4: Build `StretchRepository` to load and filter stretches from bundled JSON
+- [x] Task 2.5: Write unit tests for data models and repository (loading, filtering by category)
 
 ### Verification
 
-- [ ] All stretch data loads correctly, category filtering works, tests pass
+- [x] All stretch data loads correctly, category filtering works, tests pass
 
 ## Phase 3: Reminder System
 

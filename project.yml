@@ -19,8 +19,11 @@ targets:
     platform: macOS
     sources:
       - path: LetsStretch/Sources
-    resources:
       - path: LetsStretch/Resources/Assets.xcassets
+        type: folder
+      - path: LetsStretch/Resources/stretches.json
+        type: file
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.lucasprim.LetsStretch
