@@ -63,15 +63,15 @@ Build the popup window that shows stretch instructions when the user clicks the 
 
 ### Tasks
 
-- [ ] Task 4.1: Create a popover/panel that appears anchored to the menu bar icon on click
-- [ ] Task 4.2: Build `StretchDetailView` showing stretch name, description, and step-by-step instructions
-- [ ] Task 4.3: Add stretch animations (Lottie/custom SwiftUI animations) with sourced animation data for each stretch
-- [ ] Task 4.4: Show a random desk-friendly stretch by default (respecting user's category filter)
-- [ ] Task 4.5: Add "Done" and "Skip" buttons to dismiss the stretch view and stop the icon pulse
+- [x] Task 4.1: Create a popover/panel that appears anchored to the menu bar icon on click
+- [x] Task 4.2: Build `StretchDetailView` showing stretch name, description, and step-by-step instructions
+- [x] Task 4.3: Add stretch animations (Lottie/custom SwiftUI animations) with sourced animation data for each stretch
+- [x] Task 4.4: Show a random desk-friendly stretch by default (respecting user's category filter)
+- [x] Task 4.5: Add "Done" and "Skip" buttons to dismiss the stretch view and stop the icon pulse
 
 ### Verification
 
-- [ ] Clicking the pulsing icon shows a stretch with instructions and animations, buttons work correctly
+- [x] Clicking the pulsing icon shows a stretch with instructions and animations, buttons work correctly
 
 ## Phase 5: Auto-Play Mode
 

@@ -6,17 +6,26 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItemAnimator: StatusItemAnimator?
     private var reminderScheduler: ReminderScheduler?
     private let preferences = UserPreferences()
+    private var repository: StretchRepository?
+    private var popoverManager: StretchPopoverManager?
 
     private var snoozeMenuItem: NSMenuItem?
     private var skipMenuItem: NSMenuItem?
+    private var stretchMenuItem: NSMenuItem?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        setupRepository()
         setupStatusItem()
+        setupPopover()
         setupMenu()
         setupReminder()
     }
 
-    // MARK: - Status Item
+    // MARK: - Setup
+
+    private func setupRepository() {
+        repository = try? StretchRepository()
+    }
 
     private func setupStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -26,6 +35,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 systemSymbolName: "figure.cooldown",
                 accessibilityDescription: "Let's Stretch"
             )
+            button.action = #selector(statusItemClicked)
+            button.target = self
         }
 
         if let statusItem {
@@ -33,10 +44,35 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    // MARK: - Menu
+    private func setupPopover() {
+        let manager = StretchPopoverManager()
+        if let statusItem {
+            manager.configure(statusItem: statusItem)
+        }
+        manager.onDone = { [weak self] in
+            self?.handleStretchDone()
+        }
+        manager.onSkip = { [weak self] in
+            self?.handleStretchSkipped()
+        }
+        manager.onStartSession = { [weak self] in
+            self?.handleStartSession()
+        }
+        popoverManager = manager
+    }
 
     private func setupMenu() {
         let menu = NSMenu()
+
+        let stretchItem = NSMenuItem(
+            title: "Show Stretch",
+            action: #selector(showRandomStretch),
+            keyEquivalent: "s"
+        )
+        stretchMenuItem = stretchItem
+        menu.addItem(stretchItem)
+
+        menu.addItem(NSMenuItem.separator())
 
         let snooze = NSMenuItem(
             title: "Snooze (\(preferences.snoozeIntervalMinutes) min)",
@@ -79,8 +115,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem?.menu = menu
     }
 
-    // MARK: - Reminder
-
     private func setupReminder() {
         let scheduler = ReminderScheduler(
             intervalMinutes: preferences.reminderIntervalMinutes,
@@ -92,6 +126,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     // MARK: - Actions
+
+    @objc private func statusItemClicked() {
+        if reminderScheduler?.state == .reminded {
+            showRandomStretch()
+        }
+    }
+
+    @objc private func showRandomStretch() {
+        let categories = preferences.enabledCategories
+        guard let stretch = repository?.randomStretch(in: categories) else { return }
+        popoverManager?.show(stretch: stretch)
+    }
 
     @objc private func snoozeReminder() {
         reminderScheduler?.snooze()
@@ -108,6 +154,27 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     @objc private func showAbout() {
         NSApp.activate(ignoringOtherApps: true)
         NSApp.orderFrontStandardAboutPanel(nil)
+    }
+
+    // MARK: - Stretch Actions
+
+    private func handleStretchDone() {
+        reminderScheduler?.dismiss()
+        statusItemAnimator?.stopPulsing()
+        updateReminderMenuItems(visible: false)
+    }
+
+    private func handleStretchSkipped() {
+        reminderScheduler?.skip()
+        statusItemAnimator?.stopPulsing()
+        updateReminderMenuItems(visible: false)
+    }
+
+    private func handleStartSession() {
+        // Will be implemented in Phase 5
+        reminderScheduler?.dismiss()
+        statusItemAnimator?.stopPulsing()
+        updateReminderMenuItems(visible: false)
     }
 
     // MARK: - Helpers
