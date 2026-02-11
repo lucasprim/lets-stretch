@@ -5,7 +5,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
     private var statusItemAnimator: StatusItemAnimator?
     private var reminderScheduler: ReminderScheduler?
-    private let preferences = UserPreferences()
+    let preferences = UserPreferences()
     private var repository: StretchRepository?
     private var popoverManager: StretchPopoverManager?
 
@@ -63,7 +63,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func setupMenu() {
         let menu = NSMenu()
+        addStretchItems(to: menu)
+        menu.addItem(NSMenuItem.separator())
+        addReminderItems(to: menu)
+        menu.addItem(NSMenuItem.separator())
+        addAppItems(to: menu)
+        statusItem?.menu = menu
+    }
 
+    private func addStretchItems(to menu: NSMenu) {
         let stretchItem = NSMenuItem(
             title: "Show Stretch",
             action: #selector(showRandomStretch),
@@ -71,17 +79,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         )
         stretchMenuItem = stretchItem
         menu.addItem(stretchItem)
+        menu.addItem(NSMenuItem(
+            title: "Start Session",
+            action: #selector(startAutoPlaySession),
+            keyEquivalent: ""
+        ))
+    }
 
-        menu.addItem(
-            NSMenuItem(
-                title: "Start Session",
-                action: #selector(startAutoPlaySession),
-                keyEquivalent: ""
-            )
-        )
-
-        menu.addItem(NSMenuItem.separator())
-
+    private func addReminderItems(to menu: NSMenu) {
         let snooze = NSMenuItem(
             title: "Snooze (\(preferences.snoozeIntervalMinutes) min)",
             action: #selector(snoozeReminder),
@@ -99,28 +104,25 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         skip.isHidden = true
         skipMenuItem = skip
         menu.addItem(skip)
+    }
 
+    private func addAppItems(to menu: NSMenu) {
+        menu.addItem(NSMenuItem(
+            title: "Settings...",
+            action: #selector(showSettings),
+            keyEquivalent: ","
+        ))
+        menu.addItem(NSMenuItem(
+            title: "About Let's Stretch",
+            action: #selector(showAbout),
+            keyEquivalent: ""
+        ))
         menu.addItem(NSMenuItem.separator())
-
-        menu.addItem(
-            NSMenuItem(
-                title: "About Let's Stretch",
-                action: #selector(showAbout),
-                keyEquivalent: ""
-            )
-        )
-
-        menu.addItem(NSMenuItem.separator())
-
-        menu.addItem(
-            NSMenuItem(
-                title: "Quit Let's Stretch",
-                action: #selector(NSApplication.terminate(_:)),
-                keyEquivalent: "q"
-            )
-        )
-
-        statusItem?.menu = menu
+        menu.addItem(NSMenuItem(
+            title: "Quit Let's Stretch",
+            action: #selector(NSApplication.terminate(_:)),
+            keyEquivalent: "q"
+        ))
     }
 
     private func setupReminder() {
@@ -157,6 +159,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         reminderScheduler?.skip()
         statusItemAnimator?.stopPulsing()
         updateReminderMenuItems(visible: false)
+    }
+
+    @objc private func showSettings() {
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
     }
 
     @objc private func showAbout() {

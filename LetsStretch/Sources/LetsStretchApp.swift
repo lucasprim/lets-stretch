@@ -6,7 +6,7 @@ struct LetsStretchApp: App {
 
     var body: some Scene {
         Settings {
-            EmptyView()
+            SettingsView(preferences: appDelegate.preferences)
         }
     }
 }

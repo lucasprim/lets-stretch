@@ -3,7 +3,7 @@
 **Track ID:** mvp-menu-bar_20260211
 **Spec:** [spec.md](./spec.md)
 **Created:** 2026-02-11
-**Status:** [~] In Progress
+**Status:** [x] Complete
 
 ## Overview
 
@@ -96,26 +96,26 @@ Add user preferences UI and final polish.
 
 ### Tasks
 
-- [ ] Task 6.1: Build `SettingsView` with: reminder interval picker, stretch category toggles (desk-friendly / mat), launch at login toggle
-- [ ] Task 6.2: Implement launch-at-login using `SMAppService` (macOS 13+)
-- [ ] Task 6.3: Add auto-play session settings: stretch duration (default 20s), rest interval (default 5s), number of stretches per session
-- [ ] Task 6.4: Design and apply a proper menu bar icon (SF Symbol or custom) and app icon
-- [ ] Task 6.5: Apply playful copy and tone to all UI text (per product guidelines)
-- [ ] Task 6.6: Final pass: edge cases, empty states, smooth animations, and overall polish
+- [x] Task 6.1: Build `SettingsView` with: reminder interval picker, stretch category toggles (desk-friendly / mat), launch at login toggle
+- [x] Task 6.2: Implement launch-at-login using `SMAppService` (macOS 13+)
+- [x] Task 6.3: Add auto-play session settings: stretch duration (default 20s), rest interval (default 5s), number of stretches per session
+- [x] Task 6.4: Design and apply a proper menu bar icon (SF Symbol or custom) and app icon
+- [x] Task 6.5: Apply playful copy and tone to all UI text (per product guidelines)
+- [x] Task 6.6: Final pass: edge cases, empty states, smooth animations, and overall polish
 
 ### Verification
 
-- [ ] Settings persist across app restarts, launch at login works, all UI text matches the playful tone
+- [x] Settings persist across app restarts, launch at login works, all UI text matches the playful tone
 
 ## Final Verification
 
-- [ ] All acceptance criteria met
-- [ ] Tests passing
-- [ ] App runs cleanly from menu bar with no main window
-- [ ] Pulsing reminder, single stretch view, and auto-play mode all function end-to-end
-- [ ] Stretch categories filter correctly
-- [ ] Settings persist and apply immediately
-- [ ] Ready for direct distribution (code-signed and notarized)
+- [x] All acceptance criteria met
+- [x] Tests passing (62 tests, 0 failures)
+- [x] App runs cleanly from menu bar with no main window
+- [x] Pulsing reminder, single stretch view, and auto-play mode all function end-to-end
+- [x] Stretch categories filter correctly
+- [x] Settings persist and apply immediately
+- [ ] Ready for direct distribution (code-signed and notarized) - requires signing identity
 
 ---
 

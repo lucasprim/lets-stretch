@@ -20,7 +20,7 @@ final class SessionPlayerTests: XCTestCase {
             id: "s3", name: "Stretch 3", description: "Desc 3",
             instructions: ["Step 1"], durationSeconds: 20,
             category: .deskFriendly, targetArea: "back"
-        ),
+        )
     ]
 
     override func setUp() {

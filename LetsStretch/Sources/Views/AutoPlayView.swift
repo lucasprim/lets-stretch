@@ -78,12 +78,12 @@ struct AutoPlayView: View {
                     .font(.system(size: 40))
                     .foregroundStyle(.secondary)
 
-                Text("Take a breather")
+                Text("Shake it off!")
                     .font(.title2)
                     .fontWeight(.medium)
 
                 if let nextStretch = player.currentStretch {
-                    Text("Coming up: \(nextStretch.name)")
+                    Text("Get ready for \(nextStretch.name)")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
@@ -107,11 +107,11 @@ struct AutoPlayView: View {
                     .font(.system(size: 50))
                     .foregroundStyle(.green)
 
-                Text("Great job!")
+                Text("You're a stretch legend!")
                     .font(.title)
                     .fontWeight(.bold)
 
-                Text("You completed \(player.totalStretches) stretches")
+                Text("\(player.totalStretches) stretches crushed. Your body thanks you.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }

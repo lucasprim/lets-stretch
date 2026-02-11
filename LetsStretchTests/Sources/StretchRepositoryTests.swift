@@ -127,6 +127,6 @@ final class StretchRepositoryTests: XCTestCase {
             durationSeconds: 30,
             category: .matRequired,
             targetArea: "hips"
-        ),
+        )
     ]
 }

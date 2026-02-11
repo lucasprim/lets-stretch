@@ -17,6 +17,7 @@
 		9F4C2A5C92AC013E5E27C79C /* StretchPopoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0688F8007C7C26480FB84D3 /* StretchPopoverManager.swift */; };
 		A011BEF2B8DA14233564D862 /* StretchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1824FBF7F58640A3028C55 /* StretchTests.swift */; };
 		B3CF8BDD4704480C368A8050 /* LetsStretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CE0F901D12FA4B59A79FBE /* LetsStretchApp.swift */; };
+		B6DB85EEAA166674EE7311EC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8C97DD59E25869C24D132D /* SettingsView.swift */; };
 		BC605B823B7DDDDB0C1C49FE /* StretchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBDDCF86B1F7842EF56C2 /* StretchDetailView.swift */; };
 		C079B869A099E380A0BC0ECF /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFAC2A86E8F509FA19F6513 /* UserPreferences.swift */; };
 		C632FF85EE64353FDA9D76C9 /* LetsStretchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA815792E1ECD455DF1253A /* LetsStretchTests.swift */; };
@@ -57,6 +58,7 @@
 		DDBAD2E844262F060C076B33 /* StretchSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchSession.swift; sourceTree = "<group>"; };
 		E0688F8007C7C26480FB84D3 /* StretchPopoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchPopoverManager.swift; sourceTree = "<group>"; };
 		E43D8DB752646E2AA08891B5 /* StretchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchRepository.swift; sourceTree = "<group>"; };
+		EE8C97DD59E25869C24D132D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EEFAC2A86E8F509FA19F6513 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		F50920D5ABAD6FDAB168CAE2 /* stretches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stretches.json; sourceTree = "<group>"; };
 		F6CE0F901D12FA4B59A79FBE /* LetsStretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsStretchApp.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				8B51D2B384EDCE0EA572F1BC /* AutoPlayView.swift */,
+				EE8C97DD59E25869C24D132D /* SettingsView.swift */,
 				404EBDDCF86B1F7842EF56C2 /* StretchDetailView.swift */,
 				E0688F8007C7C26480FB84D3 /* StretchPopoverManager.swift */,
 			);
@@ -297,6 +300,7 @@
 				B3CF8BDD4704480C368A8050 /* LetsStretchApp.swift in Sources */,
 				85E5F562E33A4621F6684D16 /* ReminderScheduler.swift in Sources */,
 				E85DAA242412487031D2D86E /* SessionPlayer.swift in Sources */,
+				B6DB85EEAA166674EE7311EC /* SettingsView.swift in Sources */,
 				E548ADBB004DF3E176941799 /* StatusItemAnimator.swift in Sources */,
 				D36BF345F26A225DBA911A3A /* Stretch.swift in Sources */,
 				BC605B823B7DDDDB0C1C49FE /* StretchDetailView.swift in Sources */,
