@@ -1,0 +1,28 @@
+included:
+  - LetsStretch/Sources
+  - LetsStretchTests/Sources
+
+excluded:
+  - DerivedData
+  - .build
+
+line_length:
+  warning: 120
+  error: 150
+
+type_body_length:
+  warning: 250
+  error: 350
+
+function_body_length:
+  warning: 40
+  error: 80
+
+opt_in_rules:
+  - force_unwrapping
+
+vertical_whitespace:
+  max_empty_lines: 1
+
+trailing_whitespace:
+  ignores_empty_lines: false

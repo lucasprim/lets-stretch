@@ -94,6 +94,7 @@
 			buildConfigurationList = 24C4F33BD38792C82A2BD3B9 /* Build configuration list for PBXNativeTarget "LetsStretch" */;
 			buildPhases = (
 				E235B97F43028D35CF3EAC4E /* Sources */,
+				9CC364E3F1A36221DE7DDC3D /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -125,6 +126,9 @@
 			);
 			mainGroup = 403DD354FBCD445CE1BE50F4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0361A18018FB978ACCC7C5D2 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
@@ -134,6 +138,28 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9CC364E3F1A36221DE7DDC3D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if command -v swiftlint >/dev/null 2>&1; then\n  swiftlint lint --config \"${SRCROOT}/.swiftlint.yml\" --path \"${SRCROOT}/LetsStretch/Sources\"\nelse\n  echo \"warning: SwiftLint not installed. Install via: brew install swiftlint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2BEE7109AB9C092464676B64 /* Sources */ = {
@@ -388,6 +414,17 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0361A18018FB978ACCC7C5D2 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.57.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 227644DD84113B43D9669467 /* Project object */;
 }
