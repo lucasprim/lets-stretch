@@ -47,15 +47,15 @@ Implement the timed reminder engine with pulsing icon animation and snooze/skip.
 
 ### Tasks
 
-- [ ] Task 3.1: Build `ReminderScheduler` using Timer to trigger reminders at configurable intervals
-- [ ] Task 3.2: Implement pulsing animation on the NSStatusItem icon when a reminder fires
-- [ ] Task 3.3: Add snooze action (delays reminder by a short interval) and skip action (dismisses until next cycle)
-- [ ] Task 3.4: Store reminder interval preference in UserDefaults with a sensible default (e.g., 45 minutes)
-- [ ] Task 3.5: Write tests for `ReminderScheduler` (timing, snooze, skip logic)
+- [x] Task 3.1: Build `ReminderScheduler` using Timer to trigger reminders at configurable intervals
+- [x] Task 3.2: Implement pulsing animation on the NSStatusItem icon when a reminder fires
+- [x] Task 3.3: Add snooze action (delays reminder by a short interval) and skip action (dismisses until next cycle)
+- [x] Task 3.4: Store reminder interval preference in UserDefaults with a sensible default (e.g., 45 minutes)
+- [x] Task 3.5: Write tests for `ReminderScheduler` (timing, snooze, skip logic)
 
 ### Verification
 
-- [ ] Menu bar icon pulses at the configured interval, snooze and skip work correctly
+- [x] Menu bar icon pulses at the configured interval, snooze and skip work correctly
 
 ## Phase 4: Stretch Display UI
 
