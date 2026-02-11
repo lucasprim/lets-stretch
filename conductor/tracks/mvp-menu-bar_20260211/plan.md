@@ -18,8 +18,8 @@ Set up the Xcode project, menu bar presence, and basic app lifecycle.
 - [x] Task 1.1: Create Xcode project as a macOS app (SwiftUI lifecycle, no main window) targeting macOS 14
 - [x] Task 1.2: Configure the app as a menu bar agent (LSUIElement) with NSStatusItem and a placeholder icon
 - [x] Task 1.3: Add basic menu bar dropdown with "Quit" and "About" items
-- [~] Task 1.4: Set up SwiftLint via Swift Package Manager and add initial configuration
-- [ ] Task 1.5: Set up unit test target with XCTest
+- [x] Task 1.4: Set up SwiftLint via Swift Package Manager and add initial configuration
+- [~] Task 1.5: Set up unit test target with XCTest
 
 ### Verification
 

@@ -157,7 +157,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if command -v swiftlint >/dev/null 2>&1; then\n  swiftlint lint --config \"${SRCROOT}/.swiftlint.yml\" --path \"${SRCROOT}/LetsStretch/Sources\"\nelse\n  echo \"warning: SwiftLint not installed. Install via: brew install swiftlint\"\nfi\n";
+			shellScript = "if command -v swiftlint >/dev/null 2>&1; then\n  swiftlint lint --config \"${SRCROOT}/.swiftlint.yml\" \"${SRCROOT}/LetsStretch/Sources\"\nelse\n  echo \"warning: SwiftLint not installed. Install via: brew install swiftlint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -37,7 +37,7 @@ targets:
         basedOnDependencyAnalysis: false
         script: |
           if command -v swiftlint >/dev/null 2>&1; then
-            swiftlint lint --config "${SRCROOT}/.swiftlint.yml" --path "${SRCROOT}/LetsStretch/Sources"
+            swiftlint lint --config "${SRCROOT}/.swiftlint.yml" "${SRCROOT}/LetsStretch/Sources"
           else
             echo "warning: SwiftLint not installed. Install via: brew install swiftlint"
           fi
