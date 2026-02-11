@@ -13,6 +13,7 @@
 		5495FB14D480E498C9237BF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7A70B9282A1BD358ADBDD1 /* AppDelegate.swift */; };
 		6C79086C802219F8335EE606 /* StretchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAD2E844262F060C076B33 /* StretchSession.swift */; };
 		85E5F562E33A4621F6684D16 /* ReminderScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB576C67DD1EC46759CED /* ReminderScheduler.swift */; };
+		9C97254D9505DB3EBA4476AC /* SessionPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA43DE7488D47B806B9AAB0 /* SessionPlayerTests.swift */; };
 		9F4C2A5C92AC013E5E27C79C /* StretchPopoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0688F8007C7C26480FB84D3 /* StretchPopoverManager.swift */; };
 		A011BEF2B8DA14233564D862 /* StretchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1824FBF7F58640A3028C55 /* StretchTests.swift */; };
 		B3CF8BDD4704480C368A8050 /* LetsStretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CE0F901D12FA4B59A79FBE /* LetsStretchApp.swift */; };
@@ -23,7 +24,9 @@
 		D8D8E0183E8439B41F66E3E7 /* StretchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D8DB752646E2AA08891B5 /* StretchRepository.swift */; };
 		DAD12812083C29264BD23F6B /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB0A42A47EE48D59CDF382 /* UserPreferencesTests.swift */; };
 		E548ADBB004DF3E176941799 /* StatusItemAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FECB9F52635634B51E0358 /* StatusItemAnimator.swift */; };
+		E85DAA242412487031D2D86E /* SessionPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57320C3BAB229C0123CC8F /* SessionPlayer.swift */; };
 		F788975CB4652ADCB94097FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 344EF73BC785FBB2188B1D3A /* Assets.xcassets */; };
+		FBE6C6FCF2C0D1E899A37719 /* AutoPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D2B384EDCE0EA572F1BC /* AutoPlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 		61BB0A42A47EE48D59CDF382 /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
 		6340082A00E17F32E33D621B /* LetsStretchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsStretchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1824FBF7F58640A3028C55 /* StretchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchTests.swift; sourceTree = "<group>"; };
+		7D57320C3BAB229C0123CC8F /* SessionPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPlayer.swift; sourceTree = "<group>"; };
+		8B51D2B384EDCE0EA572F1BC /* AutoPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPlayView.swift; sourceTree = "<group>"; };
+		8EA43DE7488D47B806B9AAB0 /* SessionPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPlayerTests.swift; sourceTree = "<group>"; };
 		99FECB9F52635634B51E0358 /* StatusItemAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemAnimator.swift; sourceTree = "<group>"; };
 		9A2DB576C67DD1EC46759CED /* ReminderScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderScheduler.swift; sourceTree = "<group>"; };
 		A89E281273AA42C1A1CB1EFC /* StretchRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchRepositoryTests.swift; sourceTree = "<group>"; };
@@ -59,6 +65,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		0988149F3F8E506FDF94AE19 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				7D57320C3BAB229C0123CC8F /* SessionPlayer.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		1E803A976A010671D0047414 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +101,7 @@
 				9FB1DAAF79CD5A373C5F271A /* Data */,
 				1E803A976A010671D0047414 /* Models */,
 				ACF7D2DB4782EC02B33247D5 /* Reminders */,
+				0988149F3F8E506FDF94AE19 /* Session */,
 				E5C997626A613D89DECAF8DC /* Views */,
 			);
 			name = Sources;
@@ -107,6 +122,7 @@
 			children = (
 				FBA815792E1ECD455DF1253A /* LetsStretchTests.swift */,
 				D492B3010470DADCB201D665 /* ReminderSchedulerTests.swift */,
+				8EA43DE7488D47B806B9AAB0 /* SessionPlayerTests.swift */,
 				A89E281273AA42C1A1CB1EFC /* StretchRepositoryTests.swift */,
 				7C1824FBF7F58640A3028C55 /* StretchTests.swift */,
 				61BB0A42A47EE48D59CDF382 /* UserPreferencesTests.swift */,
@@ -145,6 +161,7 @@
 		E5C997626A613D89DECAF8DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8B51D2B384EDCE0EA572F1BC /* AutoPlayView.swift */,
 				404EBDDCF86B1F7842EF56C2 /* StretchDetailView.swift */,
 				E0688F8007C7C26480FB84D3 /* StretchPopoverManager.swift */,
 			);
@@ -264,6 +281,7 @@
 			files = (
 				C632FF85EE64353FDA9D76C9 /* LetsStretchTests.swift in Sources */,
 				1187B430A928816B65161CAD /* ReminderSchedulerTests.swift in Sources */,
+				9C97254D9505DB3EBA4476AC /* SessionPlayerTests.swift in Sources */,
 				0750DC1AFD432CB0612C8DD7 /* StretchRepositoryTests.swift in Sources */,
 				A011BEF2B8DA14233564D862 /* StretchTests.swift in Sources */,
 				DAD12812083C29264BD23F6B /* UserPreferencesTests.swift in Sources */,
@@ -275,8 +293,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5495FB14D480E498C9237BF5 /* AppDelegate.swift in Sources */,
+				FBE6C6FCF2C0D1E899A37719 /* AutoPlayView.swift in Sources */,
 				B3CF8BDD4704480C368A8050 /* LetsStretchApp.swift in Sources */,
 				85E5F562E33A4621F6684D16 /* ReminderScheduler.swift in Sources */,
+				E85DAA242412487031D2D86E /* SessionPlayer.swift in Sources */,
 				E548ADBB004DF3E176941799 /* StatusItemAnimator.swift in Sources */,
 				D36BF345F26A225DBA911A3A /* Stretch.swift in Sources */,
 				BC605B823B7DDDDB0C1C49FE /* StretchDetailView.swift in Sources */,

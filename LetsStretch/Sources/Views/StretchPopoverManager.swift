@@ -36,17 +36,41 @@ final class StretchPopoverManager {
             }
         )
 
-        popover.contentViewController = NSHostingController(rootView: view)
+        showView(view)
+    }
 
-        guard let button = statusItem?.button else { return }
-        popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+    func showAutoPlay(player: SessionPlayer) {
+        let view = AutoPlayView(
+            player: player,
+            onComplete: { [weak self] in
+                self?.close()
+                self?.onDone?()
+            },
+            onEnd: { [weak self] in
+                self?.close()
+                self?.onDone?()
+            }
+        )
+
+        popover.behavior = .applicationDefined
+        showView(view)
     }
 
     func close() {
         popover.performClose(nil)
+        popover.behavior = .transient
     }
 
     var isShown: Bool {
         popover.isShown
+    }
+
+    // MARK: - Private
+
+    private func showView<V: View>(_ view: V) {
+        popover.contentViewController = NSHostingController(rootView: view)
+
+        guard let button = statusItem?.button else { return }
+        popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
     }
 }

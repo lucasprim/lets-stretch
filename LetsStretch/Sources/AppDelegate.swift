@@ -72,6 +72,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         stretchMenuItem = stretchItem
         menu.addItem(stretchItem)
 
+        menu.addItem(
+            NSMenuItem(
+                title: "Start Session",
+                action: #selector(startAutoPlaySession),
+                keyEquivalent: ""
+            )
+        )
+
         menu.addItem(NSMenuItem.separator())
 
         let snooze = NSMenuItem(
@@ -171,10 +179,28 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func handleStartSession() {
-        // Will be implemented in Phase 5
         reminderScheduler?.dismiss()
         statusItemAnimator?.stopPulsing()
         updateReminderMenuItems(visible: false)
+        startAutoPlaySession()
+    }
+
+    @objc private func startAutoPlaySession() {
+        let categories = preferences.enabledCategories
+        guard let repository else { return }
+        let stretches = repository.randomStretches(
+            count: preferences.stretchesPerSession,
+            in: categories
+        )
+        guard !stretches.isEmpty else { return }
+
+        let player = SessionPlayer(
+            stretches: stretches,
+            stretchDurationSeconds: preferences.stretchDurationSeconds,
+            restIntervalSeconds: preferences.restIntervalSeconds
+        )
+        player.start()
+        popoverManager?.showAutoPlay(player: player)
     }
 
     // MARK: - Helpers

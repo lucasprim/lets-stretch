@@ -79,16 +79,16 @@ Build the multi-stretch session player with timed transitions.
 
 ### Tasks
 
-- [ ] Task 5.1: Build `SessionPlayer` view model managing a sequence of stretches with timing (stretch duration, rest intervals)
-- [ ] Task 5.2: Create `AutoPlayView` with current stretch display, countdown timer, and progress indicator
-- [ ] Task 5.3: Implement rest interval screen between stretches (5s default with "Get ready for..." preview)
-- [ ] Task 5.4: Add session controls: pause/resume, skip stretch, and end session
-- [ ] Task 5.5: Add "Start Session" entry point from the menu bar dropdown and from the single-stretch popup
-- [ ] Task 5.6: Write tests for `SessionPlayer` (sequencing, timing, pause/resume, skip)
+- [x] Task 5.1: Build `SessionPlayer` view model managing a sequence of stretches with timing (stretch duration, rest intervals)
+- [x] Task 5.2: Create `AutoPlayView` with current stretch display, countdown timer, and progress indicator
+- [x] Task 5.3: Implement rest interval screen between stretches (5s default with "Get ready for..." preview)
+- [x] Task 5.4: Add session controls: pause/resume, skip stretch, and end session
+- [x] Task 5.5: Add "Start Session" entry point from the menu bar dropdown and from the single-stretch popup
+- [x] Task 5.6: Write tests for `SessionPlayer` (sequencing, timing, pause/resume, skip)
 
 ### Verification
 
-- [ ] Auto-play mode cycles through multiple stretches with rest intervals, controls work, session completes gracefully
+- [x] Auto-play mode cycles through multiple stretches with rest intervals, controls work, session completes gracefully
 
 ## Phase 6: Settings & Polish
 
