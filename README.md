@@ -11,7 +11,15 @@ A lightweight macOS menu bar app that reminds you to stretch throughout the day.
 - **Auto-play sessions** — chain multiple stretches together
 - **Launch at login** — start stretching from day one
 
-## Download
+## Install
+
+### Homebrew (recommended)
+
+```bash
+brew install --cask lucasprim/lets-stretch/lets-stretch
+```
+
+### Manual download
 
 Head to the [Releases](../../releases/latest) page and download the latest `LetsStretch.zip`. Unzip it and drag `LetsStretch.app` to your Applications folder.
 
