@@ -6,6 +6,7 @@ final class StatusItemAnimator {
     private var pulseTimer: Timer?
     private var isPulsing = false
     private var isVisible = true
+    private var originalImage: NSImage?
 
     init(statusItem: NSStatusItem) {
         self.statusItem = statusItem
@@ -15,7 +16,15 @@ final class StatusItemAnimator {
         guard !isPulsing else { return }
         isPulsing = true
         isVisible = true
-        statusItem.button?.contentTintColor = .systemRed
+
+        if let button = statusItem.button {
+            originalImage = button.image
+            let config = NSImage.SymbolConfiguration(paletteColors: [.systemRed])
+            if let tinted = button.image?.withSymbolConfiguration(config) {
+                tinted.isTemplate = false
+                button.image = tinted
+            }
+        }
 
         pulseTimer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { [weak self] _ in
             Task { @MainActor in
@@ -29,7 +38,10 @@ final class StatusItemAnimator {
         pulseTimer?.invalidate()
         pulseTimer = nil
         statusItem.button?.alphaValue = 1.0
-        statusItem.button?.contentTintColor = nil
+        if let originalImage {
+            statusItem.button?.image = originalImage
+        }
+        originalImage = nil
     }
 
     private func toggleVisibility() {
