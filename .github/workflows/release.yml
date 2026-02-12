@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build and Release
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build Release archive
+        run: |
+          xcodebuild archive \
+            -scheme LetsStretch \
+            -configuration Release \
+            -archivePath ${{ runner.temp }}/LetsStretch.xcarchive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Export app from archive
+        run: |
+          cp -R "${{ runner.temp }}/LetsStretch.xcarchive/Products/Applications/LetsStretch.app" \
+            "${{ runner.temp }}/LetsStretch.app"
+
+      - name: Create zip
+        run: |
+          cd "${{ runner.temp }}"
+          zip -r -y LetsStretch.zip LetsStretch.app
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          files: ${{ runner.temp }}/LetsStretch.zip

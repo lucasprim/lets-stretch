@@ -31,3 +31,13 @@ build/
 
 # Xcode build generated
 *.app
+
+# Secrets and environment files
+.env
+.env.*
+*.key
+*.pem
+*.p12
+
+# Claude Code local settings
+.claude/settings.local.json
