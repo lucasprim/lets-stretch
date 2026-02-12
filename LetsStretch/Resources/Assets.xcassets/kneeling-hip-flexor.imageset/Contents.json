@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "kneeling-hip-flexor.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

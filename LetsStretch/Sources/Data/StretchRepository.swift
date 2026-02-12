@@ -48,6 +48,18 @@ final class StretchRepository: Sendable {
         return filtered.randomElement()
     }
 
+    func cycledStretch(at index: Int, in categories: Set<StretchCategory>? = nil) -> (stretch: Stretch, nextIndex: Int)? {
+        let filtered: [Stretch]
+        if let categories {
+            filtered = stretches.filter { categories.contains($0.category) }
+        } else {
+            filtered = stretches
+        }
+        guard !filtered.isEmpty else { return nil }
+        let safeIndex = index % filtered.count
+        return (filtered[safeIndex], (safeIndex + 1) % filtered.count)
+    }
+
     func randomStretches(count: Int, in categories: Set<StretchCategory>? = nil) -> [Stretch] {
         let filtered: [Stretch]
         if let categories {

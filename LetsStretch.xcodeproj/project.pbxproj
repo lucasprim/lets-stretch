@@ -16,6 +16,7 @@
 		9C97254D9505DB3EBA4476AC /* SessionPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA43DE7488D47B806B9AAB0 /* SessionPlayerTests.swift */; };
 		9F4C2A5C92AC013E5E27C79C /* StretchPopoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0688F8007C7C26480FB84D3 /* StretchPopoverManager.swift */; };
 		A011BEF2B8DA14233564D862 /* StretchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1824FBF7F58640A3028C55 /* StretchTests.swift */; };
+		A18458F754A2616176A21D2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B911C28739099FEC3FADF9 /* Assets.xcassets */; };
 		B3CF8BDD4704480C368A8050 /* LetsStretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CE0F901D12FA4B59A79FBE /* LetsStretchApp.swift */; };
 		B6DB85EEAA166674EE7311EC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8C97DD59E25869C24D132D /* SettingsView.swift */; };
 		BC605B823B7DDDDB0C1C49FE /* StretchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EBDDCF86B1F7842EF56C2 /* StretchDetailView.swift */; };
@@ -26,7 +27,6 @@
 		DAD12812083C29264BD23F6B /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB0A42A47EE48D59CDF382 /* UserPreferencesTests.swift */; };
 		E548ADBB004DF3E176941799 /* StatusItemAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FECB9F52635634B51E0358 /* StatusItemAnimator.swift */; };
 		E85DAA242412487031D2D86E /* SessionPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57320C3BAB229C0123CC8F /* SessionPlayer.swift */; };
-		F788975CB4652ADCB94097FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 344EF73BC785FBB2188B1D3A /* Assets.xcassets */; };
 		FBE6C6FCF2C0D1E899A37719 /* AutoPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51D2B384EDCE0EA572F1BC /* AutoPlayView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		344EF73BC785FBB2188B1D3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Assets.xcassets; path = LetsStretch/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		38B911C28739099FEC3FADF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		404EBDDCF86B1F7842EF56C2 /* StretchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchDetailView.swift; sourceTree = "<group>"; };
 		61BB0A42A47EE48D59CDF382 /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
 		6340082A00E17F32E33D621B /* LetsStretchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsStretchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +87,6 @@
 		403DD354FBCD445CE1BE50F4 = {
 			isa = PBXGroup;
 			children = (
-				344EF73BC785FBB2188B1D3A /* Assets.xcassets */,
 				E046316FBBFD0A38701AD8EF /* Resources */,
 				4228F03C878CCD1EA47C7128 /* Sources */,
 				ABBF9D87E10C57FF934A1527 /* Sources */,
@@ -154,6 +153,7 @@
 		E046316FBBFD0A38701AD8EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				38B911C28739099FEC3FADF9 /* Assets.xcassets */,
 				F50920D5ABAD6FDAB168CAE2 /* stretches.json */,
 			);
 			name = Resources;
@@ -248,7 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F788975CB4652ADCB94097FE /* Assets.xcassets in Resources */,
+				A18458F754A2616176A21D2E /* Assets.xcassets in Resources */,
 				0AAE43E1FBA170B80B881C4E /* stretches.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,13 +401,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LetsStretch/Resources/LetsStretch.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Let's Stretch";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Lucas Prim. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucasprim.LetsStretch;
 				PRODUCT_NAME = LetsStretch;
 				SDKROOT = macosx;
@@ -438,13 +441,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LetsStretch/Resources/LetsStretch.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Let's Stretch";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Lucas Prim. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucasprim.LetsStretch;
 				PRODUCT_NAME = LetsStretch;
 				SDKROOT = macosx;

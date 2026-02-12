@@ -15,6 +15,7 @@ final class StatusItemAnimator {
         guard !isPulsing else { return }
         isPulsing = true
         isVisible = true
+        statusItem.button?.contentTintColor = .systemRed
 
         pulseTimer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { [weak self] _ in
             Task { @MainActor in
@@ -28,6 +29,7 @@ final class StatusItemAnimator {
         pulseTimer?.invalidate()
         pulseTimer = nil
         statusItem.button?.alphaValue = 1.0
+        statusItem.button?.contentTintColor = nil
     }
 
     private func toggleVisibility() {

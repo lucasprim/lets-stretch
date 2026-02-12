@@ -15,7 +15,7 @@ struct AutoPlayView: View {
                 stretchView
             }
         }
-        .frame(width: 320, height: 420)
+        .frame(width: 320)
     }
 
     // MARK: - Stretch View
@@ -26,39 +26,45 @@ struct AutoPlayView: View {
             Divider()
 
             if let stretch = player.currentStretch {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(stretch.name)
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                HStack(spacing: 12) {
+                    Image(stretch.id)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80, height: 80)
 
-                    Text(stretch.description)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(stretch.name)
+                            .font(.title3)
+                            .fontWeight(.semibold)
+
+                        Text(stretch.description)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(2)
+                    }
                 }
 
                 Divider()
 
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 8) {
-                        ForEach(
-                            Array(stretch.instructions.enumerated()),
-                            id: \.offset
-                        ) { index, instruction in
-                            HStack(alignment: .top, spacing: 8) {
-                                Text("\(index + 1).")
-                                    .font(.body)
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.secondary)
-                                Text(instruction)
-                                    .font(.body)
-                            }
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(
+                        Array(stretch.instructions.enumerated()),
+                        id: \.offset
+                    ) { index, instruction in
+                        HStack(alignment: .top, spacing: 8) {
+                            Text("\(index + 1).")
+                                .font(.body)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.secondary)
+                            Text(instruction)
+                                .font(.body)
                         }
                     }
                 }
             }
 
-            Spacer()
             countdownAndControls
+                .frame(maxWidth: .infinity)
         }
         .padding(20)
     }
@@ -74,9 +80,17 @@ struct AutoPlayView: View {
             Spacer()
 
             VStack(spacing: 12) {
-                Image(systemName: "wind")
-                    .font(.system(size: 40))
-                    .foregroundStyle(.secondary)
+                if let nextStretch = player.currentStretch {
+                    Image(nextStretch.id)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 80)
+                        .opacity(0.6)
+                } else {
+                    Image(systemName: "wind")
+                        .font(.system(size: 40))
+                        .foregroundStyle(.secondary)
+                }
 
                 Text("Shake it off!")
                     .font(.title2)

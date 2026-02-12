@@ -1,4 +1,5 @@
 import AppKit
+import SwiftUI
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -9,9 +10,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var repository: StretchRepository?
     private var popoverManager: StretchPopoverManager?
 
+    private var statusMenu: NSMenu?
+    private var settingsWindow: NSWindow?
     private var snoozeMenuItem: NSMenuItem?
     private var skipMenuItem: NSMenuItem?
     private var stretchMenuItem: NSMenuItem?
+    private var stretchCycleIndex: Int {
+        get { UserDefaults.standard.integer(forKey: "stretchCycleIndex") }
+        set { UserDefaults.standard.set(newValue, forKey: "stretchCycleIndex") }
+    }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         setupRepository()
@@ -55,6 +62,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         manager.onSkip = { [weak self] in
             self?.handleStretchSkipped()
         }
+        manager.onTryAnother = { [weak self] in
+            self?.showNextStretch()
+        }
         manager.onStartSession = { [weak self] in
             self?.handleStartSession()
         }
@@ -68,22 +78,26 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         addReminderItems(to: menu)
         menu.addItem(NSMenuItem.separator())
         addAppItems(to: menu)
-        statusItem?.menu = menu
+        statusMenu = menu
     }
 
     private func addStretchItems(to menu: NSMenu) {
         let stretchItem = NSMenuItem(
             title: "Show Stretch",
-            action: #selector(showRandomStretch),
-            keyEquivalent: "s"
+            action: #selector(showNextStretch),
+            keyEquivalent: ""
         )
+        stretchItem.target = self
         stretchMenuItem = stretchItem
         menu.addItem(stretchItem)
-        menu.addItem(NSMenuItem(
+
+        let sessionItem = NSMenuItem(
             title: "Start Session",
             action: #selector(startAutoPlaySession),
             keyEquivalent: ""
-        ))
+        )
+        sessionItem.target = self
+        menu.addItem(sessionItem)
     }
 
     private func addReminderItems(to menu: NSMenu) {
@@ -92,6 +106,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             action: #selector(snoozeReminder),
             keyEquivalent: ""
         )
+        snooze.target = self
         snooze.isHidden = true
         snoozeMenuItem = snooze
         menu.addItem(snooze)
@@ -101,22 +116,29 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             action: #selector(skipReminder),
             keyEquivalent: ""
         )
+        skip.target = self
         skip.isHidden = true
         skipMenuItem = skip
         menu.addItem(skip)
     }
 
     private func addAppItems(to menu: NSMenu) {
-        menu.addItem(NSMenuItem(
+        let settingsItem = NSMenuItem(
             title: "Settings...",
             action: #selector(showSettings),
-            keyEquivalent: ","
-        ))
-        menu.addItem(NSMenuItem(
+            keyEquivalent: ""
+        )
+        settingsItem.target = self
+        menu.addItem(settingsItem)
+
+        let aboutItem = NSMenuItem(
             title: "About Let's Stretch",
             action: #selector(showAbout),
             keyEquivalent: ""
-        ))
+        )
+        aboutItem.target = self
+        menu.addItem(aboutItem)
+
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(
             title: "Quit Let's Stretch",
@@ -139,14 +161,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc private func statusItemClicked() {
         if reminderScheduler?.state == .reminded {
-            showRandomStretch()
+            showNextStretch()
+        } else {
+            guard let button = statusItem?.button, let menu = statusMenu else { return }
+            menu.popUp(positioning: nil, at: NSPoint(x: 0, y: button.bounds.height + 5), in: button)
         }
     }
 
-    @objc private func showRandomStretch() {
+    @objc private func showNextStretch() {
         let categories = preferences.enabledCategories
-        guard let stretch = repository?.randomStretch(in: categories) else { return }
-        popoverManager?.show(stretch: stretch)
+        guard let result = repository?.cycledStretch(at: stretchCycleIndex, in: categories) else { return }
+        stretchCycleIndex = result.nextIndex
+        popoverManager?.show(stretch: result.stretch)
     }
 
     @objc private func snoozeReminder() {
@@ -162,13 +188,54 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc private func showSettings() {
+        if let existing = settingsWindow, existing.isVisible {
+            existing.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+
+        let hostingController = NSHostingController(
+            rootView: SettingsView(preferences: preferences)
+        )
+        let window = NSWindow(contentViewController: hostingController)
+        window.title = "Let's Stretch Settings"
+        window.styleMask = [.titled, .closable]
+        window.center()
+        window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
-        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+        settingsWindow = window
     }
 
     @objc private func showAbout() {
         NSApp.activate(ignoringOtherApps: true)
-        NSApp.orderFrontStandardAboutPanel(nil)
+        let credits = NSMutableAttributedString()
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+
+        let bodyAttrs: [NSAttributedString.Key: Any] = [
+            .font: NSFont.systemFont(ofSize: 11),
+            .foregroundColor: NSColor.secondaryLabelColor,
+            .paragraphStyle: style
+        ]
+        let boldAttrs: [NSAttributedString.Key: Any] = [
+            .font: NSFont.boldSystemFont(ofSize: 11),
+            .foregroundColor: NSColor.labelColor,
+            .paragraphStyle: style
+        ]
+
+        credits.append(NSAttributedString(string: "Created by ", attributes: bodyAttrs))
+        credits.append(NSAttributedString(string: "Lucas Prim", attributes: boldAttrs))
+        credits.append(NSAttributedString(string: "\nBuilt with ", attributes: bodyAttrs))
+        credits.append(NSAttributedString(string: "Claude Code", attributes: boldAttrs))
+        credits.append(NSAttributedString(
+            string: "\n\nA gentle reminder to stretch throughout your day.",
+            attributes: bodyAttrs
+        ))
+
+        NSApp.orderFrontStandardAboutPanel(options: [
+            .applicationName: "Let's Stretch",
+            .credits: credits
+        ])
     }
 
     // MARK: - Stretch Actions
@@ -206,7 +273,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             stretchDurationSeconds: preferences.stretchDurationSeconds,
             restIntervalSeconds: preferences.restIntervalSeconds
         )
-        player.start()
+        player.prepare()
         popoverManager?.showAutoPlay(player: player)
     }
 

@@ -8,6 +8,7 @@ final class StretchPopoverManager {
 
     var onDone: (() -> Void)?
     var onSkip: (() -> Void)?
+    var onTryAnother: (() -> Void)?
     var onStartSession: (() -> Void)?
 
     init() {
@@ -29,6 +30,9 @@ final class StretchPopoverManager {
             onSkip: { [weak self] in
                 self?.close()
                 self?.onSkip?()
+            },
+            onTryAnother: { [weak self] in
+                self?.onTryAnother?()
             },
             onStartSession: { [weak self] in
                 self?.close()
@@ -72,5 +76,7 @@ final class StretchPopoverManager {
 
         guard let button = statusItem?.button else { return }
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+        popover.contentViewController?.view.window?.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
 }

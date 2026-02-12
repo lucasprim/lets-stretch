@@ -4,6 +4,7 @@ struct StretchDetailView: View {
     let stretch: Stretch
     var onDone: () -> Void = {}
     var onSkip: () -> Void = {}
+    var onTryAnother: () -> Void = {}
     var onStartSession: () -> Void = {}
 
     var body: some View {
@@ -22,49 +23,55 @@ struct StretchDetailView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 6) {
-            HStack {
-                stretchIcon
-                Text(stretch.name)
-                    .font(.title2)
-                    .fontWeight(.semibold)
+            HStack(spacing: 12) {
+                Image(stretch.id)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 56, height: 56)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack {
+                        Text(stretch.name)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+
+                        Spacer()
+
+                        Button(action: onTryAnother) {
+                            Image(systemName: "arrow.trianglehead.2.clockwise")
+                                .font(.body)
+                        }
+                        .buttonStyle(.borderless)
+                        .help("Try another stretch")
+                    }
+
+                    HStack(spacing: 12) {
+                        Label(stretch.targetArea.capitalized, systemImage: "figure.stand")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+
+                        Label(
+                            "\(stretch.durationSeconds)s",
+                            systemImage: "timer"
+                        )
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+
+                        Label(
+                            stretch.category.displayName,
+                            systemImage: stretch.category == .deskFriendly
+                                ? "chair.fill" : "figure.yoga"
+                        )
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    }
+                }
             }
 
             Text(stretch.description)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
-
-            HStack(spacing: 12) {
-                Label(stretch.targetArea.capitalized, systemImage: "figure.stand")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-
-                Label(
-                    "\(stretch.durationSeconds)s",
-                    systemImage: "timer"
-                )
-                .font(.caption)
-                .foregroundStyle(.secondary)
-
-                Label(
-                    stretch.category.displayName,
-                    systemImage: stretch.category == .deskFriendly
-                        ? "chair.fill" : "figure.yoga"
-                )
-                .font(.caption)
-                .foregroundStyle(.secondary)
-            }
         }
-    }
-
-    private var stretchIcon: some View {
-        Image(systemName: iconName(for: stretch.targetArea))
-            .font(.title)
-            .foregroundStyle(Color.accentColor)
-            .frame(width: 40, height: 40)
-            .background(
-                Circle()
-                    .fill(Color.accentColor.opacity(0.15))
-            )
     }
 
     private var instructionsList: some View {
@@ -98,26 +105,12 @@ struct StretchDetailView: View {
             Button("Start Session", action: onStartSession)
                 .buttonStyle(.bordered)
 
-            Button("Done! I stretched", action: onDone)
+            Button("Done", action: onDone)
                 .buttonStyle(.borderedProminent)
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
     }
 
-    // MARK: - Helpers
-
-    private func iconName(for targetArea: String) -> String {
-        switch targetArea {
-        case "neck": return "person.and.arrow.left.and.arrow.right"
-        case "shoulders": return "figure.arms.open"
-        case "wrists": return "hand.raised"
-        case "back": return "figure.cooldown"
-        case "chest": return "figure.arms.open"
-        case "hips": return "figure.walk"
-        case "legs": return "figure.run"
-        default: return "figure.cooldown"
-        }
-    }
 }
 
 #Preview {

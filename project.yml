@@ -20,7 +20,6 @@ targets:
     sources:
       - path: LetsStretch/Sources
       - path: LetsStretch/Resources/Assets.xcassets
-        type: folder
       - path: LetsStretch/Resources/stretches.json
         type: file
         buildPhase: resources
@@ -28,8 +27,11 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.lucasprim.LetsStretch
         PRODUCT_NAME: LetsStretch
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
         INFOPLIST_KEY_LSUIElement: true
         INFOPLIST_KEY_CFBundleDisplayName: "Let's Stretch"
+        INFOPLIST_KEY_NSHumanReadableCopyright: "Copyright \u00A9 2026 Lucas Prim. All rights reserved."
         GENERATE_INFOPLIST_FILE: true
         CODE_SIGN_ENTITLEMENTS: LetsStretch/Resources/LetsStretch.entitlements
         SWIFT_STRICT_CONCURRENCY: complete

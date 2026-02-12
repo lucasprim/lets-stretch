@@ -56,13 +56,16 @@ final class SessionPlayer {
 
     var progress: Double {
         guard !stretches.isEmpty else { return 0 }
-        let completedCount: Double
         switch phase {
-        case .stretching(let index): completedCount = Double(index)
-        case .resting(let nextIndex): completedCount = Double(nextIndex)
-        case .completed: completedCount = Double(stretches.count)
+        case .stretching(let index):
+            let elapsed = Double(stretchDurationSeconds - secondsRemaining)
+            let stretchProgress = elapsed / Double(max(stretchDurationSeconds, 1))
+            return (Double(index) + stretchProgress) / Double(stretches.count)
+        case .resting(let nextIndex):
+            return Double(nextIndex) / Double(stretches.count)
+        case .completed:
+            return 1.0
         }
-        return completedCount / Double(stretches.count)
     }
 
     init(
@@ -73,6 +76,17 @@ final class SessionPlayer {
         self.stretches = stretches
         self.stretchDurationSeconds = stretchDurationSeconds
         self.restIntervalSeconds = restIntervalSeconds
+        self.secondsRemaining = stretchDurationSeconds
+    }
+
+    func prepare() {
+        guard !stretches.isEmpty else {
+            phase = .completed
+            return
+        }
+        phase = .stretching(index: 0)
+        playState = .paused
+        secondsRemaining = stretchDurationSeconds
     }
 
     func start() {

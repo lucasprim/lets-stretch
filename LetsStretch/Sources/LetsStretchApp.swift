@@ -5,8 +5,7 @@ struct LetsStretchApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     var body: some Scene {
-        Settings {
-            SettingsView(preferences: appDelegate.preferences)
-        }
+        // Settings window is managed directly by AppDelegate
+        Settings { EmptyView() }
     }
 }
