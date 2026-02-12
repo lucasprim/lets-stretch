@@ -15,7 +15,13 @@ A lightweight macOS menu bar app that reminds you to stretch throughout the day.
 
 Head to the [Releases](../../releases/latest) page and download the latest `LetsStretch.zip`. Unzip it and drag `LetsStretch.app` to your Applications folder.
 
-> **Note:** Since the app is not signed with an Apple Developer ID, you'll need to right-click the app and select "Open" the first time you launch it.
+> **Note:** Since the app is not notarized by Apple, macOS will block it on first launch. After unzipping, run this in Terminal:
+>
+> ```bash
+> xattr -cr /Applications/LetsStretch.app
+> ```
+>
+> Then open the app normally. You only need to do this once.
 
 ## Build from Source
 
